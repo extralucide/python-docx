@@ -393,6 +393,11 @@ def table(contents, heading=True, colw=None, cwunit='dxa', tblw=0, twunit='auto'
                         align = celstyle[i]['align']
                     else:
                         align = 'left'
+                    # Split text in multiple lines
+                    output = c.splitlines()
+                    for line in output:
+                        # Each line is a paragraph
+                        cell.append(paragraph(line, jc=align))                        
                     cell.append(paragraph(c, jc=align))
             row.append(cell)
             i += 1
